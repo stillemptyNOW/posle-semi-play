@@ -1,0 +1,178 @@
+После семи
+Источники звуков / Sound credits
+
+Сторонние записи и эффекты ниже опубликованы под CC0 1.0.
+Лицензия: https://creativecommons.org/publicdomain/zero/1.0/
+
+music_walk.mp3
+blankie.rest — Sleepy Upright Piano Seamless Loop
+https://freesound.org/people/blankie.rest/sounds/859607/
+
+music_evidence.mp3
+Erokia — Piano Ambiance 4 (120bpm)
+https://freesound.org/people/Erokia/sounds/387588/
+
+phone_vibrate.mp3
+Breviceps — Phone vibration
+https://freesound.org/people/Breviceps/sounds/515295/
+
+cup_setdown.mp3
+Jamitch2 — Ceramic_Mug_Cup.wav
+https://freesound.org/people/Jamitch2/sounds/344704/
+
+projector_stop.mp3
+Dr. Macak — Cinema-Projector.wav
+https://freesound.org/people/Dr.%20Macak/sounds/253758/
+
+dog.mp3
+Sadiquecat — Thuir Distant dog bark - 2025 03 14 00h01 - XY H2N
+https://freesound.org/people/Sadiquecat/sounds/792440/
+MP3-предпросмотр автора на Freesound.
+
+steps.mp3
+Fission9 — Hiking Boot Footsteps on Gravel
+https://freesound.org/people/Fission9/sounds/521588/
+MP3-предпросмотр автора на Freesound.
+
+door.mp3
+Sandwichbill — Wooden Creaking Door
+https://freesound.org/people/Sandwichbill/sounds/842232/
+MP3-предпросмотр автора на Freesound.
+
+wind.mp3
+Anya_Media — Forest, close up of trees rustling in the wind.wav
+https://freesound.org/people/Anya_Media/sounds/523389/
+28-секундный отрывок с короткими фейдами.
+
+swing.mp3
+karlis.stigis — Swing
+https://freesound.org/people/karlis.stigis/sounds/168640/
+Монофонический отрывок со сниженной громкостью.
+
+breath.mp3
+qubodup — Ghost breath
+https://opengameart.org/content/ghost-breath
+Конвертация из FLAC в моно MP3 и изменение громкости.
+
+radio.mp3
+xhunterko — Static
+https://opengameart.org/content/static
+12-секундный отрывок со сниженной громкостью и короткими фейдами.
+
+paper.mp3
+Luckius — Various Paper Sound Effects (paper_ripped_-_1.mp3)
+https://opengameart.org/content/various-paper-sound-effects
+
+music_day.mp3
+Kistol — Forget Me Not (версия для зацикливания)
+https://opengameart.org/content/forget-me-not
+Полная версия, преобразованная в MP3 с выровненной громкостью.
+
+music_night.mp3
+isaiah658 — Echoes of the Past
+https://opengameart.org/content/echoes-of-the-past
+Полная версия, преобразованная в MP3 со сниженной громкостью.
+
+music_intimate.mp3
+Wolfgang_ — Regret - Short Emotional Piano
+https://opengameart.org/content/regret-short-emotional-piano
+Полная версия, преобразованная в MP3 с выровненной громкостью.
+
+college.mp3
+Bexhillcollege — College Hallway ambience
+https://freesound.org/people/Bexhillcollege/sounds/274213/
+Стереоотрывок из записи коридора колледжа. Речь приглушена фильтром.
+
+rain.mp3
+Nickisawsome74 — Rain on window
+https://freesound.org/people/Nickisawsome74/sounds/669621/
+Стереоотрывок записи дождя из помещения с короткими фейдами.
+
+bell.mp3
+civvy — School Bell
+https://freesound.org/people/civvy/sounds/620392/
+Конвертация в моно со сниженной громкостью.
+
+projector.mp3
+seatlanta00 — 8mm Progector sound.wav
+https://freesound.org/people/seatlanta00/sounds/517347/
+Моноотрывок записи работающего кинопроектора с короткими фейдами.
+
+hum.mp3
+kentspublicdomain — Flickering Fluorescent Light with Background Hum (Seamless Loop, 44100 Hz Mono)
+https://freesound.org/people/kentspublicdomain/sounds/777053/
+Полная запись гула и мерцания лампы со сниженной громкостью.
+
+snow_steps.mp3
+lwdickens — footsteps snow crunchy close.wav
+https://freesound.org/people/lwdickens/sounds/261222/
+Моноотрывок записи шагов по сухому снегу. Громкость выровнена.
+
+winter_wind.mp3
+Dakenber — WOODCrek_Winter-Tree-Branch-Squeak-Cold_Dakenber_H1e-32b
+https://freesound.org/people/Dakenber/sounds/846045/
+Стереозапись ветра и веток морозным вечером с краткими фейдами.
+
+tape.mp3
+kyles — cassette tape deck open, close, rewind, clicks.aif
+https://freesound.org/people/kyles/sounds/450524/
+Моноотрывок механических щелчков и работы кассетной деки.
+
+gate.mp3
+Widds — metal gate - rattle handle, swing, clang.wav
+https://freesound.org/people/Widds/sounds/330522/
+Моноотрывок полевой записи металлической калитки.
+
+winter_ambience.mp3
+bajko — sfx_amb_forest_winter_night.wav
+https://freesound.org/people/bajko/sounds/378048/
+Стереоотрывок записи зимнего леса ночью с краткими фейдами.
+
+music_december.mp3
+Cleyton Kauffman — Through the Snow (Snow Theme, замедленная зацикленная версия)
+https://opengameart.org/content/snow-theme
+Полная зацикленная версия, преобразованная из WAV в MP3. Громкость выровнена.
+
+blizzard.mp3
+guyburns — Wind during snow storm #1.m4a
+https://freesound.org/people/guyburns/sounds/473815/
+Стереозапись снежной бури в Крейдл-Маунтин. Отрывок с коррекцией громкости, фильтрацией и перекрытием для зацикливания.
+
+snow_gust.mp3
+codgold2 — Snowy Wind
+https://freesound.org/people/codgold2/sounds/792516/
+Стереоотрывок порыва ветра во время метели с короткими фейдами.
+
+window_rattle.mp3
+Vrymaa — Wind - Binaural tempest near a window
+https://freesound.org/people/Vrymaa/sounds/770264/
+Стереоотрывок записи шатающегося от ветра окна.
+
+boot_brush.mp3
+msimmonsvoice — Snow on stairs and kicking snow off boots 00
+https://freesound.org/people/msimmonsvoice/sounds/719627/
+Моноотрывок записи ударов ботинками о ступеньку при сбивании снега.
+
+coat.mp3
+bmacphail — Light Fabric Rustling, Zipper Zipping.wav
+https://freesound.org/people/bmacphail/sounds/569542/
+Моноотрывок записи шороха ткани куртки и застёжки.
+
+kettle.mp3
+long9999999 — Kettle whistle
+https://freesound.org/people/long9999999/sounds/659281/
+Моноотрывок записи свиста чайника со сниженной громкостью.
+
+structure_howl.mp3
+vazdaz — Whistling And Fluttering Wind Between Buildings
+https://freesound.org/people/vazdaz/sounds/787541/
+Стереоотрывок записи свистящего ветра между зданиями.
+
+Оригинальный звук «После семи»
+Следующие композиции и эффекты созданы специально для этой сборки без внешних семплов.
+
+after-seven-dialogue.mp3 — тема разговора. Приглушённое пианино, низкие щипковые ноты и тихие смычковые.
+after-seven-dread.mp3 — тема нарастающей тревоги. Смычковые голоса, стеклянные обертоны и низкие приглушённые удары.
+after-seven-chess.mp3 — тема шахмат. Деревянная мелодия, редкие фортепианные аккорды и щипковый бас.
+after-seven-chess-move.mp3 — короткое скольжение и стук деревянной шахматной фигуры.
+after-seven-latch.mp3 — щелчки металлической защёлки и глухое касание двери.

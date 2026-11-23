@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#141d1b">
+<title>Хрумка и газява · После семи</title>
+<style>
+  :root{color-scheme:dark;--page:#141c1a;--card:#1c2823;--line:#39473d;--text:#f5ecd9;--muted:#b6c3b5;--amber:#ffd391;--green:#c4e2b4;--serif:Georgia,"Times New Roman",serif;--sans:system-ui,-apple-system,sans-serif}
+  *{box-sizing:border-box}
+  body{margin:0;color:var(--text);background:radial-gradient(ellipse at 48% -17%,#344132 0,transparent 50%),var(--page);font-family:var(--sans);font-size:15px;min-height:100dvh}
+  button,a{touch-action:manipulation}
+  button{font:inherit;color:inherit}
+  button:not(:disabled){cursor:pointer}
+  a{color:inherit;text-decoration:none}
+  :is(button,a):focus-visible{outline:3px solid var(--amber);outline-offset:4px}
+  .wrap{width:min(1200px,100% - 48px);margin:auto}
+  .top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px 0 17px;border-bottom:1px solid var(--line)}
+  .back{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-weight:650}
+  .back:hover{color:var(--amber)}
+  .top-tools{display:flex;align-items:center;gap:15px}
+  .save-status{color:var(--muted);font-size:.78rem;text-align:right}
+  .icon-btn{border:1px solid var(--line);background:#223027;border-radius:100px;min-width:44px;min-height:44px;font-size:.8rem;padding:0 .85rem}
+  .icon-btn:hover{border-color:var(--amber)}
+  .intro{display:flex;align-items:end;justify-content:space-between;gap:24px;margin:30px 0 24px}
+  .eyebrow{font-size:.73rem;color:var(--amber);font-weight:800;letter-spacing:.13em;text-transform:uppercase;margin:0 0 8px}
+  h1,h2,p{margin-top:0}
+  h1{font:600 clamp(2.5rem,6vw,5rem)/.99 var(--serif);letter-spacing:-.055em;margin:0}
+  h2{font:600 1.65rem/1.14 var(--serif);margin-bottom:.45rem}
+  .intro p:last-child{max-width:29ch;margin:0 0 .1rem;color:var(--muted);line-height:1.56}
+  .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0 0 19px;border:1px solid var(--line);border-radius:17px;background:#202a24;overflow:hidden}
+  .stats div{padding:12px 17px;border-right:1px solid var(--line)}
+  .stats div:last-child{border:0}
+  .stats dt{font-size:.76rem;color:var(--muted);margin-bottom:4px}
+  .stats dd{margin:0;font-weight:790;font-size:clamp(1.15rem,3vw,1.8rem);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .stats div:nth-child(2) dd{color:var(--amber)}
+  .stats div:nth-child(4) dd{color:var(--green)}
+  .game{display:grid;grid-template-columns:minmax(0,1.22fr) minmax(295px,.9fr);gap:18px}
+  .stage,.shop,.goals{border:1px solid var(--line);border-radius:19px;overflow:hidden}
+  .stage{position:relative;isolation:isolate;min-height:464px;display:grid;grid-template-rows:auto 1fr auto;background:#243028 url('assets/bg/bg_shop_outside.jpg') center 55%/cover}
+  .stage::before{position:absolute;content:"";z-index:-1;inset:0;background:linear-gradient(#111917ab 0,transparent 35%,#111b17cc 88%),radial-gradient(ellipse at 50% 43%,#29312400 4%,#141b1899 88%)}
+  .stage-zone{display:flex;justify-content:space-between;align-items:center;gap:.5rem;padding:18px 20px;color:#fff4d9;font-size:.82rem;text-shadow:0 1px 5px #000}
+  .time{padding:4px 9px;border:1px solid #eadbb36b;border-radius:100px;font-variant-numeric:tabular-nums;background:#191c17b8}
+  .play-area{display:grid;place-items:center;padding:15px 0 30px}
+  .tap{position:relative;display:grid;place-items:center;width:min(70%,220px);aspect-ratio:1;border:1px solid #f6d79fc4;border-radius:50%;background:radial-gradient(ellipse at 47% 32%,#eac083 5%,#aa7641 64%,#82532c 100%);box-shadow:0 0 0 9px #f8d6aa27,0 13px 38px #070c08aa,0 0 60px #e5a75845;transition:transform .16s ease,filter .15s;user-select:none;-webkit-tap-highlight-color:transparent}
+  .tap:hover{transform:translateY(-3px);filter:brightness(1.08)}
+  .tap:active{transform:scale(.95)}
+  .tap img{display:block;width:102%;height:auto;filter:drop-shadow(0 8px 7px #1a140f8a);pointer-events:none;transform:rotate(-8deg)}
+  .tap span{position:absolute;bottom:-15px;min-width:70px;padding:7px 11px;border:1px solid #fee2ac;border-radius:100px;background:var(--amber);color:#332012;font-weight:850;box-shadow:0 3px 12px #160c0565}
+  .floating{position:absolute;color:#fff3b9;font-weight:850;font-size:24px;text-shadow:0 2px 7px #251205;pointer-events:none;animation:rise .62s forwards}
+  @keyframes rise{to{transform:translateY(-70px) scale(1.16);opacity:0}}
+  .stage-bottom{padding:18px 20px 17px;display:flex;justify-content:space-between;gap:12px;align-items:end;background:linear-gradient(transparent,#141d19cb)}
+  .stage-bottom strong{display:block;font-size:1rem}
+  .stage-bottom small{font-size:.79rem;color:#e0e3cb}
+  .event-open{border:1px solid #f9d8a4;background:#ffd391;color:#332012;padding:10px 12px;min-height:44px;border-radius:10px;font-weight:780}
+  .shop,.goals{background:var(--card);padding:19px 18px}
+  .shop-lead{margin-bottom:12px;color:var(--muted);font-size:.82rem;line-height:1.48}
+  .offers{display:grid;gap:7px}
+  .offer{width:100%;display:grid;grid-template-columns:35px minmax(0,1fr) auto;align-items:center;gap:10px;text-align:left;padding:8px 10px;border:1px solid #425147;border-radius:10px;background:#25332a;min-height:62px}
+  .offer:not(:disabled):hover{background:#394d36;border-color:#b2d99c}
+  .offer:disabled{cursor:default;background:#222e27;border-color:#35473a}
+  .offer-icon{display:grid;place-items:center;width:34px;height:35px;border-radius:8px;background:#374838;font-size:1.12rem}
+  .offer strong{display:block;line-height:1.12}
+  .offer small{display:block;color:var(--muted);font-size:.75rem;margin-top:4px;line-height:1.14}
+  .offer .price{background:#cadeb6;color:#1f3022;padding:5px 8px;border-radius:7px;font-weight:800;font-size:.82rem;min-width:54px;text-align:center;white-space:nowrap}
+  .offer:disabled .price{background:#32443a;color:#cfdbcb}
+  .goals{margin:18px 0 0}
+  .goal-list{list-style:none;padding:0;margin:10px 0 2px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+  .goal-list li{border:1px solid var(--line);border-radius:8px;min-height:47px;padding:7px;font-size:.78rem;color:var(--muted)}
+  .goal-list .done{color:var(--green);border-color:#63805d;background:#283b2e}
+  .goal-list strong{display:block;font-size:.81rem;margin-bottom:2px;color:var(--text)}
+  .notice{color:var(--green);min-height:1.5rem;margin:12px 0 14px;font-size:.83rem}
+  footer{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line);padding:13px 0 21px;color:var(--muted);font-size:.78rem}
+  dialog{width:min(480px,100% - 36px);padding:22px;border:1px solid #647364;border-radius:18px;background:#26342b;color:var(--text);box-shadow:0 17px 60px #0009}
+  dialog::backdrop{background:#090e0a9c;backdrop-filter:blur(5px)}
+  dialog p{color:#d2dcca;line-height:1.5}
+  .dialog-actions{display:flex;gap:9px;flex-wrap:wrap}
+  .dialog-actions button{min-height:44px;padding:8px 12px;border-radius:8px;border:1px solid #697b65;background:#344538;font-weight:740}
+  .dialog-actions .primary{color:#2d2015;background:var(--amber);border-color:var(--amber)}
+  .sr-only{width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);position:absolute;white-space:nowrap}
+  [hidden]{display:none!important}
+  @media(max-width:760px){.wrap{width:calc(100% - 30px)}.intro{display:block;margin:22px 0 17px}.intro p:last-child{max-width:none;margin-top:10px}.game{grid-template-columns:1fr}.stage{min-height:395px}.shop,.goals{padding:15px}.top{padding:13px 0 9px}.top-tools{gap:6px}.goal-list{grid-template-columns:1fr 1fr}}
+  @media(max-width:410px){.stats div{padding:10px 7px}.stats dt{font-size:.68rem}.stats dd{font-size:1.05rem}.stage{min-height:350px}.stage-zone,.stage-bottom{padding-left:12px;padding-right:12px}.stage-bottom small{font-size:.71rem}.save-status{display:none}h1{font-size:2.7rem}}
+  @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.floating{display:none}}
+</style>
+</head>
+<body>
+<header class="wrap top">
+  <a class="back" href="./index.html"><span aria-hidden="true">←</span> После семи</a>
+  <div class="top-tools"><span class="save-status" id="save-status">Автосохранение</span><button class="icon-btn" type="button" id="reset">Сбросить прогресс</button></div>
+</header>
+<main class="wrap">
+  <div class="intro">
+    <div><p class="eyebrow">Ким · Вечер у магазина</p><h1>Хрумка и газява</h1></div>
+    <p>Роберт забежал к тёте Люде за шоколадом. Хрумкай, копи монеты и устраивай вечерние завозы.</p>
+  </div>
+  <dl class="stats" aria-label="Счётчики игры">
+    <div><dt>Всего хрумок</dt><dd id="total">0</dd></div>
+    <div><dt>Монеты</dt><dd id="coins">0</dd></div>
+    <div><dt>За нажатие</dt><dd id="power">+1</dd></div>
+    <div><dt>В секунду</dt><dd id="passive">+0</dd></div>
+  </dl>
+  <div class="game">
+    <section class="stage" aria-label="Хрумка у магазина">
+      <div class="stage-zone"><span>Магазин тёти Люды</span><time class="time" datetime="19:10">19:10</time></div>
+      <div class="play-area">
+        <button type="button" class="tap" id="tap" aria-label="Хрумнуть и заработать 1 монету"><img src="assets/items/item_chocolate.png" alt="" draggable="false"><span id="tap-gain" aria-hidden="true">+1</span></button>
+      </div>
+      <div class="stage-bottom">
+        <div><strong>Хрумнуть</strong><small>Нажми на шоколадку или пробел</small></div>
+        <button type="button" class="event-open" id="event-open" hidden>Ночное событие</button>
+      </div>
+    </section>
+    <section class="shop" aria-labelledby="shop-title">
+      <h2 id="shop-title">Прилавок</h2>
+      <p class="shop-lead">Улучшай хрумку или собирай монеты, пока руки заняты.</p>
+      <div class="offers" id="offers"></div>
+    </section>
+  </div>
+  <section class="goals" aria-labelledby="goals-title"><h2 id="goals-title">Рекорды вечера</h2><ul class="goal-list" id="goal-list"></ul></section>
+  <p class="notice" role="status" id="notice"></p>
+  <footer><span>Прогресс кликера хранится в этом браузере.</span><a href="./index.html">К выбору игры</a></footer>
+</main>
+<dialog id="dialog" aria-labelledby="dialog-title" aria-describedby="dialog-body">
+  <h2 id="dialog-title"></h2><p id="dialog-body"></p><div class="dialog-actions" id="dialog-actions"></div>
+</dialog>
+<script>
+(() => {
+  'use strict';
+  const KEY='after-seven.clicker.v1';
+  const LIMIT=1e12;
+  const OFFLINE_LIMIT=8*60*60;
+  const MAX_LEVEL=65;
+  const upgrades=[
+    {id:'soda',icon:'🥤',title:'Газява',base:12,growth:1.42,tap:1,passive:0},
+    {id:'bag',icon:'🛍',title:'Пакет хрумки',base:38,growth:1.49,tap:3,passive:0},
+    {id:'shelf',icon:'📦',title:'Полка у кассы',base:75,growth:1.42,tap:0,passive:1},
+    {id:'danil',icon:'🧾',title:'Учёт от Данила',base:195,growth:1.47,tap:0,passive:4},
+    {id:'delivery',icon:'🚚',title:'Вечерний завоз',base:610,growth:1.5,tap:0,passive:14},
+  ];
+  const milestones=[
+    {value:25,title:'Первая сдача'},
+    {value:120,title:'Свой у прилавка'},
+    {value:550,title:'Угощение на всех'},
+    {value:2400,title:'Завозик удался'},
+  ];
+  const events=[
+    {at:45,title:'Последняя бутылка',body:'Тётя Люда нашла в ящике последнюю газяву. Данил рассказывает, что собственноручно занёс её в накладную два раза.',options:[
+      {text:'Забрать сдачу · +24 монеты',reward:24},
+      {text:'Поделиться с Данилом · +1 за нажатие',tap:1}]},
+    {at:240,title:'Коля у фонаря',body:'Коля машет с улицы. За дверью три пакета, а у него две руки и большие планы на вечер.',options:[
+      {text:'Взять чужой пакет · +90 монет',reward:90},
+      {text:'Разложить пакеты на полке · +2 в секунду',passive:2}]},
+    {at:900,title:'Фонарь погас',body:'На минуту в магазине остаётся один свет из открытого холодильника. Тётя Люда спокойно просит Роберта помочь пересчитать коробки.',options:[
+      {text:'Остаться у кассы · +310 монет',reward:310},
+      {text:'Довезти коробки к утру · +6 в секунду',passive:6}]},
+  ];
+  const byId=id=>document.getElementById(id);
+  const dialog=byId('dialog');
+  const integer=new Intl.NumberFormat('ru-RU',{maximumFractionDigits:0});
+  const compact=new Intl.NumberFormat('ru-RU',{notation:'compact',maximumFractionDigits:1});
+  const decimal=new Intl.NumberFormat('ru-RU',{maximumFractionDigits:1});
+  const fmt=n=>n<10000?integer.format(Math.floor(n)):compact.format(n);
+  const bounded=(number,max=LIMIT)=>Number.isFinite(number)?Math.max(0,Math.min(max,number)):0;
+  const fresh=()=>({coins:0,total:0,levels:{},extraTap:0,extraPassive:0,eventIndex:0,lastAt:Date.now()});
+  let storageOK=true,dirty=false,dismissedEvent=-1,modalEvent=false;
+  function load(){
+    let saved;
+    try{saved=JSON.parse(localStorage.getItem(KEY)||'null');}catch{storageOK=false;return fresh();}
+    if(!saved||typeof saved!=='object')return fresh();
+    const now=Date.now();
+    return {
+      coins:bounded(saved.coins),total:bounded(saved.total),
+      levels:Object.fromEntries(upgrades.map(u=>[u.id,Math.floor(bounded(saved.levels?.[u.id],MAX_LEVEL))])),
+      extraTap:Math.floor(bounded(saved.extraTap,1)),extraPassive:Math.floor(bounded(saved.extraPassive,8)),
+      eventIndex:Math.floor(bounded(saved.eventIndex,events.length)),
+      lastAt:Number.isFinite(saved.lastAt)&&saved.lastAt>0?Math.min(saved.lastAt,now):now,
+    };
+  }
+  let state=load();
+  function save(){
+    try{localStorage.setItem(KEY,JSON.stringify(state));storageOK=true;dirty=false;}
+    catch{storageOK=false;dirty=false;}
+    byId('save-status').textContent=storageOK?'Автосохранение':'Сохранение недоступно';
+  }
+  const level=upgrade=>state.levels[upgrade.id]||0;
+  const cost=upgrade=>Math.min(LIMIT,Math.ceil(upgrade.base*upgrade.growth**level(upgrade)));
+  const quantity=key=>upgrades.reduce((sum,u)=>sum+level(u)*u[key],0);
+  const tapPower=()=>1+state.extraTap+quantity('tap');
+  const perSecond=()=>state.extraPassive+quantity('passive');
+  function earn(amount){
+    if(amount<=0)return;
+    state.coins=bounded(state.coins+amount);
+    state.total=bounded(state.total+amount);
+    dirty=true;
+  }
+  function collectTime(now){
+    const elapsed=Math.max(0,Math.min((now-state.lastAt)/1000,OFFLINE_LIMIT));
+    state.lastAt=now;
+    const amount=perSecond()*elapsed;
+    earn(amount);
+    return amount;
+  }
+  function announce(text){
+    byId('notice').textContent=text;
+  }
+  function button(text,callback,primary=false){
+    const element=document.createElement('button');
+    element.type='button';
+    element.textContent=text;
+    if(primary)element.classList.add('primary');
+    element.addEventListener('click',callback);
+    return element;
+  }
+  const offerControls=upgrades.map(upgrade=>{
+    const control=button('',()=>purchase(upgrade));
+    control.className='offer';
+    const icon=document.createElement('span');
+    icon.className='offer-icon';
+    icon.setAttribute('aria-hidden','true');
+    icon.textContent=upgrade.icon;
+    const copy=document.createElement('span');
+    const title=document.createElement('strong');
+    title.textContent=upgrade.title;
+    const effect=document.createElement('small');
+    copy.append(title,effect);
+    const price=document.createElement('span');
+    price.className='price';
+    control.append(icon,copy,price);
+    byId('offers').append(control);
+    return {upgrade,control,effect,price};
+  });
+  const goals=milestones.map(goal=>{
+    const row=document.createElement('li');
+    const name=document.createElement('strong');
+    const progress=document.createElement('span');
+    name.textContent=goal.title;
+    row.append(name,progress);
+    byId('goal-list').append(row);
+    return {...goal,row,progress};
+  });
+  const activeEvent=()=>events[state.eventIndex]?.at<=state.total?events[state.eventIndex]:null;
+  function paint(){
+    const power=tapPower();
+    byId('total').textContent=fmt(state.total);
+    byId('coins').textContent=fmt(state.coins);
+    byId('power').textContent='+'+fmt(power);
+    byId('tap-gain').textContent='+'+fmt(power);
+    byId('tap').setAttribute('aria-label','Хрумнуть. Монет за нажатие: '+integer.format(power));
+    byId('passive').textContent='+'+decimal.format(perSecond());
+    byId('event-open').hidden=!activeEvent();
+    for(const {upgrade,control,effect,price} of offerControls){
+      const n=level(upgrade);
+      const amount=cost(upgrade);
+      const full=n>=MAX_LEVEL;
+      const effectText=upgrade.tap?'+'+upgrade.tap+' за нажатие':'+'+upgrade.passive+' в секунду';
+      effect.textContent=effectText+(n?' · ур. '+n:'');
+      price.textContent=full?'Макс.':fmt(amount)+' ◉';
+      control.disabled=full||state.coins<amount;
+      control.setAttribute('aria-label',upgrade.title+', '+effectText+(full?', максимальный уровень':', цена '+integer.format(amount)+' монет'));
+    }
+    for(const goal of goals){
+      const complete=state.total>=goal.value;
+      goal.row.classList.toggle('done',complete);
+      goal.progress.textContent=complete?'✓ '+fmt(goal.value)+' хрумок':fmt(state.total)+' / '+fmt(goal.value);
+    }
+  }
+  function purchase(upgrade){
+    if(level(upgrade)>=MAX_LEVEL)return;
+    collectTime(Date.now());
+    const amount=cost(upgrade);
+    if(state.coins<amount)return;
+    state.coins-=amount;
+    state.levels[upgrade.id]=level(upgrade)+1;
+    announce(upgrade.title+' · уровень '+level(upgrade));
+    save();
+    paint();
+    maybeEvent();
+  }
+  function show(title,text,actions,event=false){
+    if(dialog.open)return;
+    modalEvent=event;
+    byId('dialog-title').textContent=title;
+    byId('dialog-body').textContent=text;
+    byId('dialog-actions').replaceChildren(...actions);
+    dialog.showModal();
+  }
+  function showEvent(){
+    const event=activeEvent();
+    if(!event)return;
+    const index=state.eventIndex;
+    const choices=event.options.map((choice,n)=>button(choice.text,()=>{
+      if(state.eventIndex!==index)return;
+      collectTime(Date.now());
+      if(choice.reward)state.coins=bounded(state.coins+choice.reward);
+      state.extraTap+=choice.tap||0;
+      state.extraPassive+=choice.passive||0;
+      state.eventIndex++;
+      modalEvent=false;
+      dialog.close();
+      announce('Событие завершено. '+choice.text.split(' · ')[1]);
+      save();
+      paint();
+      maybeEvent();
+    },n===0));
+    show(event.title,event.body,[...choices,button('Позже',dismiss)],true);
+  }
+  function maybeEvent(){
+    if(activeEvent()&&dismissedEvent!==state.eventIndex&&!dialog.open)showEvent();
+  }
+  function dismiss(){
+    if(modalEvent)dismissedEvent=state.eventIndex;
+    modalEvent=false;
+    dialog.close();
+  }
+  dialog.addEventListener('cancel',event=>{
+    event.preventDefault();
+    dismiss();
+  });
+  function tap(){
+    if(dialog.open)return;
+    const power=tapPower();
+    earn(power);
+    if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+      const stage=document.querySelector('.stage');
+      const tag=document.createElement('span');
+      tag.className='floating';
+      tag.textContent='+'+fmt(power);
+      tag.style.left=(46+Math.random()*11)+'%';
+      tag.style.top='35%';
+      tag.setAttribute('aria-hidden','true');
+      stage.append(tag);
+      setTimeout(()=>tag.remove(),700);
+    }
+    paint();
+    maybeEvent();
+  }
+  byId('tap').addEventListener('click',tap);
+  byId('event-open').addEventListener('click',showEvent);
+  window.addEventListener('keydown',event=>{
+    if(dialog.open||event.repeat||event.altKey||event.metaKey||event.ctrlKey||event.code!=='Space')return;
+    if(event.target instanceof Element&&event.target.closest('button,a,input,textarea,select,[contenteditable]'))return;
+    event.preventDefault();
+    tap();
+  });
+  byId('reset').addEventListener('click',()=>show('Начать заново?','Монеты, покупки и рекорды кликера будут обнулены.',[
+    button('Отмена',()=>dialog.close()),
+    button('Да, начать заново',()=>{
+      state=fresh();
+      dismissedEvent=-1;
+      modalEvent=false;
+      dialog.close();
+      announce('Новый вечер. Прилавок снова открыт.');
+      save();
+      paint();
+      byId('tap').focus();
+    },true),
+  ]));
+  const offline=collectTime(Date.now());
+  if(offline>=1)announce('Пока тебя не было: +'+fmt(offline)+' монет.');
+  save();
+  paint();
+  setInterval(()=>{
+    if(perSecond()>0){collectTime(Date.now());paint();maybeEvent();}
+  },250);
+  setInterval(()=>{if(dirty)save();},1400);
+  function onExit(){
+    collectTime(Date.now());
+    save();
+  }
+  window.addEventListener('pagehide',onExit);
+  document.addEventListener('visibilitychange',()=>{
+    if(document.hidden)onExit();
+    else{collectTime(Date.now());paint();maybeEvent();}
+  });
+})();
+</script>
+</body>
+</html>

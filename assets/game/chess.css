@@ -1,0 +1,158 @@
+.novel-chess {
+  --nc-ink: #ece4d5;
+  --nc-dim: #bdad9c;
+  --nc-accent: #d2a771;
+  --nc-board-light: #edd2a8;
+  --nc-board-dark: #835f46;
+  --nc-size: clamp(230px, min(65vw, 62dvh), 490px);
+  display: grid;
+  grid-template-columns: var(--nc-size) minmax(130px, 246px);
+  align-items: start;
+  justify-content: center;
+  gap: clamp(13px, 3vw, 34px);
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  color: var(--nc-ink);
+}
+
+.novel-chess__board {
+  display: grid;
+  grid-template: repeat(8, minmax(0, 1fr)) / repeat(8, minmax(0, 1fr));
+  width: 100%;
+  aspect-ratio: 1;
+  border: 5px solid #513b2e;
+  border-radius: 5px;
+  box-shadow: 0 15px 36px #0005;
+  background: var(--nc-board-dark);
+  touch-action: manipulation;
+  user-select: none;
+}
+
+.novel-chess .novel-chess__square {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: var(--nc-board-light);
+  color: #473829;
+  cursor: pointer;
+}
+
+.novel-chess .novel-chess__square[data-shade="dark"] {
+  background: var(--nc-board-dark);
+  color: #f6dfb6;
+}
+
+.novel-chess .novel-chess__square[aria-disabled="true"] {
+  cursor: default;
+}
+
+.novel-chess .novel-chess__square:focus-visible,
+.novel-chess .novel-chess__square.is-selected {
+  z-index: 1;
+  outline: 3px solid #e9b64e;
+  outline-offset: -3px;
+}
+
+.novel-chess .novel-chess__square.is-last {
+  background-image: linear-gradient(#e7b94a53, #e7b94a53);
+}
+.novel-chess .novel-chess__square.is-check {
+  background-image: radial-gradient(circle,#d653466d,#d65346ba);
+}
+
+.novel-chess .novel-chess__square.is-target::after {
+  content: "";
+  position: absolute;
+  width: 25%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  pointer-events: none;
+  background: #14181776;
+}
+
+.novel-chess .novel-chess__square.is-capture::after {
+  inset: 3px;
+  width: auto;
+  aspect-ratio: auto;
+  border: 3px solid #14181776;
+  background: transparent;
+}
+
+.novel-chess__piece {
+  display: block;
+  width: 88%;
+  height: 88%;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 1px 1px #22130c88);
+}
+
+.novel-chess__promotion {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.novel-chess__promotion-piece { width: 24px; height: 24px; }
+
+.novel-chess__rank,
+.novel-chess__file {
+  position: absolute;
+  font: 700 clamp(7px, calc(var(--nc-size) * .022), 10px) / 1 system-ui, sans-serif;
+  pointer-events: none;
+}
+
+.novel-chess__rank { top: 3px; left: 3px; }
+.novel-chess__file { right: 3px; bottom: 3px; }
+
+.novel-chess__heading { margin: 0 0 3px; font-size: clamp(19px, 2.5vw, 27px); }
+.novel-chess__opponent { color: var(--nc-dim); margin: 0 0 20px; line-height: 1.35; }
+.novel-chess__status { min-height: 2.2em; margin: 0 0 4px; color: var(--nc-accent); font-weight: 650; }
+.novel-chess__moves { min-height: 1.25em; margin: 0 0 14px; color: var(--nc-dim); font-size: .9em; }
+
+.novel-chess__prompt,
+.novel-chess__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+}
+
+.novel-chess__prompt {
+  padding: 7px 0 11px;
+  margin-bottom: 11px;
+  border-block: 1px solid #80634f80;
+}
+
+.novel-chess [hidden] { display: none; }
+.novel-chess__prompt p { flex-basis: 100%; margin: 0 0 4px; }
+.novel-chess__prompt button,
+.novel-chess__actions button { min-height: 44px; padding: 5px 10px; }
+.novel-chess button.novel-chess__leave { border-color: var(--nc-accent); }
+
+@media (max-width: 560px) and (orientation: portrait) {
+  .novel-chess {
+    --nc-size: min(86vw, 388px);
+    grid-template-columns: minmax(0, var(--nc-size));
+  }
+  .novel-chess__opponent { margin-bottom: 7px; }
+  .novel-chess__status { min-height: 1.4em; }
+}
+
+@media (orientation: landscape) and (max-height: 440px) {
+  .novel-chess {
+    --nc-size: clamp(180px, min(48vw, 65dvh), 350px);
+    gap: 12px;
+  }
+  .novel-chess__opponent { margin-bottom: 7px; }
+  .novel-chess__status { min-height: 1.4em; }
+  .novel-chess__moves { margin-bottom: 5px; }
+}

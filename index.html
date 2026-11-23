@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#121e20">
+<meta name="description" content="После семи — хоррор-новелла о селе Ким и кликер про Роберта.">
+<title>После семи — выбор игры</title>
+<style>
+:root{color-scheme:dark;--paper:#faf1dd;--muted:#e2d7c0;--gold:#f0c479}
+*{box-sizing:border-box}
+body{margin:0;background:#111c1e;color:var(--paper);font:16px/1.5 system-ui,sans-serif;min-height:100svh}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(180deg,#081315ed,#101f21e8 48%,#101b1ee8),url('assets/bg/bg_yard_evening.jpg') center/cover}
+main{width:min(1120px,100% - 40px);margin:auto;padding:clamp(44px,8vh,104px) 0 60px}
+header{margin:0 0 clamp(22px,5vw,52px);border-bottom:1px solid #dbc9a452;padding-bottom:24px}
+h1{font:400 clamp(3.55rem,10vw,8rem)/.92 Georgia,serif;letter-spacing:-.075em;margin:0}
+header p{margin:17px 0 0;color:var(--muted)}
+.games{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.game{isolation:isolate;min-height:345px;display:flex;flex-direction:column;justify-content:end;border-radius:16px;overflow:hidden;position:relative;padding:24px;color:inherit;text-decoration:none;border:1px solid #e0c4866b;transition:transform 180ms ease,border-color 180ms ease;background:#263229}
+.game::before{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(0deg,#080f12 2%,#0b1117df 26%,#1517181a 90%),var(--photo) center 45%/cover}
+.game:first-child{--photo:url('assets/bg/bg_old_building_night.jpg')}
+.game:last-child{--photo:url('assets/bg/bg_shop_inside.jpg')}
+.game:hover,.game:focus-visible{transform:translateY(-4px);border-color:var(--gold)}
+.game:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+.kind{color:var(--gold);font-size:.76rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
+h2{font:400 clamp(1.8rem,4vw,3.1rem)/1 Georgia,serif;margin:8px 0}
+.game p{margin:0 0 19px;color:var(--muted);max-width:36ch}
+.start{color:#22190b;background:var(--gold);padding:8px 15px;align-self:flex-start;border-radius:5px;font-weight:750}
+@media(max-width:660px){main{width:calc(100% - 26px);padding-top:54px}.games{grid-template-columns:1fr}.game{min-height:275px;padding:21px}}
+@media(prefers-reduced-motion:reduce){.game{transition:none}.game:hover,.game:focus-visible{transform:none}}
+</style>
+</head>
+<body><main>
+<header><h1>После семи</h1><p>Выбери, во что сыграть сегодня.</p></header>
+<div class="games">
+<a class="game" href="./novella.html"><span class="kind">Хоррор-новелла</span><h2>После семи</h2><p>Семь месяцев в Киме. Один и тот же вечер запомнился всем по-разному.</p><span class="start">Открыть новеллу →</span></a>
+<a class="game" href="./clicker.html"><span class="kind">Кликер</span><h2>Хрумка и газява</h2><p>Собирай снеки с Робертом, открывай улучшения и встречай ночные события.</p><span class="start">Открыть кликер →</span></a>
+</div>
+</main></body></html>
