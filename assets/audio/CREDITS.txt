@@ -198,3 +198,5 @@ after-seven-metal-door.mp3 — wlabarron
 https://freesound.org/people/wlabarron/sounds/509114/
 after-seven-snow-walk.mp3 — CharliesFoley
 https://freesound.org/people/CharliesFoley/sounds/841531/
+
+Разработка и сборка — Codex.

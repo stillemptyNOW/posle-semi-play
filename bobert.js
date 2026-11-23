@@ -90,13 +90,15 @@
   });
   async function connect() {
     try {
-      const config = await fetch('./bobert-api.json',{cache:'no-store'}).then(res=>res.json());
-      if (config.url) {
+      if (isLocal) {
+        api = '/api';
+      } else {
+        const config = await fetch('./bobert-api.json',{cache:'no-store'}).then(res=>res.json());
+        if (!config.url) throw Error('Сервер Боберта пока не подключён.');
         const endpoint = new URL(config.url);
         if(endpoint.protocol!=='https:') throw Error('Внешний сервер требует HTTPS.');
         api = endpoint.href.replace(/\/$/,'');
-      } else if (isLocal) api = '/api';
-      else throw Error('Сервер Боберта пока не подключён.');
+      }
       const result = await fetch(api+'/models',{cache:'no-store'}).then(res=>res.json());
       models = result.models;
       remaining = result.remainingPhotos;
@@ -107,7 +109,7 @@
       renderPhoto();
     } catch (error) {
       model.replaceChildren(new Option('Недоступно'));
-      status.textContent = error.message === 'Failed to fetch' ? 'Не удалось подключиться к серверу Боберта.' : error.message;
+      status.textContent = error instanceof TypeError ? 'Не удалось подключиться к серверу Боберта.' : error.message;
     }
   }
   connect();

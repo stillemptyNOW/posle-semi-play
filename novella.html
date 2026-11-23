@@ -11,6 +11,7 @@
 <link rel="icon" href="./icons/icon-192.png" type="image/png">
 <link rel="stylesheet" href="./install.css">
 <script src="./install.js"></script>
+<script src="./lobby-music.js"></script>
 
 <link rel="stylesheet" href="assets/game/chess.css">
 <style>
@@ -1453,7 +1454,7 @@ const CHAPTER = {
     "nov_start": {
       "title": "Утро с открытой дверью",
       "bg": "bg_dorm_day",
-      "music": "mus_walk",
+      "music": "mus_seasons_lobby_echo",
       "amb": "amb_room_night",
       "steps": [
         {
@@ -8490,7 +8491,7 @@ const CHAPTER = {
     "apr_shift": {
       "title": "Четыре пакета",
       "bg": "bg_shop_inside",
-      "music": "mus_seasons_bond",
+      "music": "mus_seasons_lobby_echo",
       "amb": "amb_room_night",
       "steps": [
         {
@@ -9801,6 +9802,7 @@ const Audio = (() => {
     } catch { ctx = null; }
   }
   function resume() {
+    window.AfterSevenTheme?.resume();
     if (!ctx || document.hidden || ctx.state === 'running') return;
     if (!resuming) resuming = ctx.resume().catch(() => {}).finally(() => resuming = null);
   }
@@ -9826,6 +9828,7 @@ const Audio = (() => {
   }
   function volume(m, e, s) {
     musicVolume = m; effectsVolume = e; scareVolume = s;
+    window.AfterSevenTheme?.setLevel(m);
     if (!ctx) return;
     for (const [channel, value] of [[score,m],[effects,e],[scare,s]]) channel.gain.setTargetAtTime(value, ctx.currentTime, .04);
   }
@@ -9896,6 +9899,8 @@ const Audio = (() => {
   }
   function scene(music, amb) {
     if (!ctx) return;
+    const requestedMusic=music;
+    if (window.AfterSevenTheme?.scene(music,musicVolume,()=>scene(requestedMusic,amb))) music=null;
     if (music !== musicId) {
       fade(previousMusic); previousMusic = null; musicId = music;
       if (music) {
@@ -9925,7 +9930,7 @@ const Audio = (() => {
           mus_wasteland:'music_night', mus_room_cold:'music_night',
           mus_walk:'music_walk', mus_evidence:'music_evidence',
           mus_chess:'after-seven-chess', mus_evening:'after-seven-dialogue', mus_dread:'after-seven-dread',
-          mus_romance:'mus_seasons_bond', mus_warm:'after-seven-warm', mus_watch:'after-seven-night',
+          mus_seasons_lobby_echo:'mus_seasons_through_wall', mus_romance:'mus_seasons_bond', mus_warm:'after-seven-warm', mus_watch:'after-seven-night',
           mus_dec_day:'music_december', mus_dec_night:'music_night', mus_dec_intimate:'music_intimate'
         }[music] || (music.startsWith('mus_seasons_') ? music : null);
         if (recordedScore) decoding?.then(() => {
@@ -10951,6 +10956,8 @@ function about() {
   body.append(element('p','Роберт живёт с Максимом в общаге и учится на ветеринара. После одной из обычных вечерних прогулок друзья по-разному вспоминают, как разошлись по домам.'));
   body.append(element('p','Вечер можно восстановить по разговорам, звонкам и записям в журнале. Для пространственного звука пригодятся наушники.'));
   body.append(element('p','В шахматах Коля играет проще, Данил просчитывает ходы. Февральский звонок меняет имя на записи, а мартовские разговоры помогают понять, кто придёт к станции вместе.'));
+  body.append(element('p','Разработка и сборка — Codex.'));
+  if (window.AfterSevenTheme?.localCredit) body.append(element('p','Музыкальная тема лобби — '+window.AfterSevenTheme.localCredit+'.'));
   const credits = element('a','Авторы звуковых записей');
   credits.href = 'assets/audio/CREDITS.txt'; credits.target = '_blank'; credits.rel = 'noopener';
   credits.style.color = 'var(--amber)';
