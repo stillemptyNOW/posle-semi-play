@@ -1,0 +1,16 @@
+{
+  "id": "./",
+  "name": "После семи",
+  "short_name": "После семи",
+  "description": "Визуальная новелла и кликер про Роберта",
+  "lang": "ru",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#111c1e",
+  "theme_color": "#111c1e",
+  "icons": [
+    {"src":"icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},
+    {"src":"icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+  ]
+}

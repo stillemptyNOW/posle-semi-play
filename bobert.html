@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111c1e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Боберт AI</title>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+<link rel="icon" href="./icons/icon-192.png" type="image/png">
+<link rel="stylesheet" href="./install.css">
+<link rel="stylesheet" href="./bobert.css">
+<script src="./install.js"></script>
+<script src="./bobert.js" defer></script>
+</head>
+<body>
+<main class="chat">
+<header>
+<a href="./index.html">← После семи</a>
+<h1>Боберт AI</h1>
+<p>Bobert QCold AI</p>
+</header>
+<div id="messages" class="messages" role="log" aria-live="polite"></div>
+<form id="composer" aria-label="Написать Боберту">
+<div class="settings">
+<label for="model">Модель</label>
+<select id="model" disabled><option>Подключение…</option></select>
+<span id="quota"></span>
+</div>
+<label class="sr-only" for="message">Сообщение</label>
+<textarea id="message" maxlength="2500" rows="3" placeholder="Напиши Боберту…" disabled></textarea>
+<div class="actions">
+<label id="photo-button" class="attach" hidden>Прикрепить фото<input type="file" id="photo" accept="image/jpeg,image/png,image/webp"></label>
+<button type="button" id="remove-photo" hidden>Убрать фото</button>
+<button id="send" type="submit" disabled>Отправить</button>
+</div>
+<p id="attachment" class="status"></p>
+<p id="chat-status" class="status" role="status">Проверяю подключение.</p>
+</form>
+</main>
+</body>
+</html>

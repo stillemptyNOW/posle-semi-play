@@ -6,6 +6,13 @@
 <meta name="theme-color" content="#121e20">
 <meta name="description" content="После семи — хоррор-новелла о селе Ким и кликер про Роберта.">
 <title>После семи — выбор игры</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+<link rel="icon" href="./icons/icon-192.png" type="image/png">
+<link rel="stylesheet" href="./install.css">
+<script src="./install.js"></script>
+
 <style>
 :root{color-scheme:dark;--paper:#faf1dd;--muted:#e2d7c0;--gold:#f0c479}
 *{box-sizing:border-box}
@@ -26,12 +33,13 @@ header p{margin:17px 0 0;color:var(--muted)}
 h2{font:400 clamp(1.8rem,4vw,3.1rem)/1 Georgia,serif;margin:8px 0}
 .game p{margin:0 0 19px;color:var(--muted);max-width:36ch}
 .start{color:#22190b;background:var(--gold);padding:8px 15px;align-self:flex-start;border-radius:5px;font-weight:750}
+.menu-links{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}.menu-links .chat-link{margin-top:12px;text-decoration:none}.menu-links p{margin-top:12px}
 @media(max-width:660px){main{width:calc(100% - 26px);padding-top:54px}.games{grid-template-columns:1fr}.game{min-height:275px;padding:21px}}
 @media(prefers-reduced-motion:reduce){.game{transition:none}.game:hover,.game:focus-visible{transform:none}}
 </style>
 </head>
 <body><main>
-<header><h1>После семи</h1><p>Выбери, во что сыграть сегодня.</p></header>
+<header><h1>После семи</h1><div class="menu-links"><p>Выбери, во что сыграть сегодня.</p><a class="start chat-link" href="./bobert.html">Боберт AI</a></div></header>
 <div class="games">
 <a class="game" href="./novella.html"><span class="kind">Хоррор-новелла</span><h2>После семи</h2><p>Семь месяцев в Киме. Один и тот же вечер запомнился всем по-разному.</p><span class="start">Открыть новеллу →</span></a>
 <a class="game" href="./clicker.html"><span class="kind">Кликер</span><h2>Хрумка и газява</h2><p>Собирай снеки с Робертом, открывай улучшения и встречай ночные события.</p><span class="start">Открыть кликер →</span></a>
