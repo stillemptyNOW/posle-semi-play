@@ -76,6 +76,7 @@ function pickDate(){
 function playNpcKisses(){
   const result=findCouples(state,4);
   const moment=[];
+  let illustrated=false;
   for(const id of ['danil','kolya']){
     const partner=result[id];
     if(!partner){
@@ -83,6 +84,10 @@ function playNpcKisses(){
       continue;
     }
     if(id==='kolya'&&partner==='danil')continue;
+    if (!illustrated) {
+      moment.push({t:'cg',id:'cg_seasons_kiss_silhouette'});
+      illustrated=true;
+    }
     moment.push(afterSevenNarr(id==='danil'
       ?socialNames[partner]+' стоит рядом с Данилом у чайника. Ложка ударяется о край второй кружки. Когда становится тихо, они смотрят друг на друга и коротко целуются.'
       :socialNames[partner]+' ждёт Колю на площадке. Он ставит коробку на перила, не закрывает крышку. После поцелуя оттуда выкатывается пешка. Оба смеются, пока наверху не хлопает дверь.'));

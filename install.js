@@ -1,10 +1,10 @@
 (() => {
   const standalone = matchMedia('(display-mode: standalone)');
-  const android = /Android/i.test(navigator.userAgent);
-  const ios = /iPhone|iPad|iPod/i.test(navigator.userAgent) ||
-    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-  const mobile = android || ios || navigator.userAgentData?.mobile === true;
-  const required = () => mobile && !standalone.matches && navigator.standalone !== true;
+  const ua = navigator.userAgent;
+  const ios = /iPhone|iPod/i.test(ua);
+  const android = /Android/i.test(ua) && (navigator.userAgentData?.mobile ?? /Mobile/i.test(ua));
+  const phone = android || ios || navigator.userAgentData?.mobile === true;
+  const required = () => phone && !standalone.matches && navigator.standalone !== true;
   const content = {
     ios: [
       'Открой эту страницу в Safari. Если ссылка открылась в Telegram или другом приложении, скопируй её и вставь в Safari.',
@@ -23,7 +23,7 @@
   if ('serviceWorker' in navigator && isSecureContext && location.protocol !== 'file:') {
     navigator.serviceWorker.register('./sw.js').catch(() => {});
   }
-  if (!mobile) return;
+  if (!phone) return;
   document.documentElement.classList.toggle('install-required', required());
   let prompt;
   let installButton;
@@ -48,7 +48,7 @@
     gate.id = 'install-gate';
     gate.setAttribute('aria-labelledby', 'install-title');
     gate.innerHTML = '<div class="install-card"><img src="./icons/icon-192.png" width="68" height="68" alt=""><h1 id="install-title">Установи «После семи»</h1><p>На телефоне игра запускается с домашнего экрана.</p><h2></h2><ol></ol><button type="button" hidden>Установить</button><p class="install-notice" role="status"></p></div>';
-    gate.querySelector('h2').textContent = ios ? 'iPhone и iPad · Safari' : 'Android · Chrome';
+    gate.querySelector('h2').textContent = ios ? 'iPhone · Safari' : 'Android · Chrome';
     for (const step of (ios ? content.ios : content.android)) {
       const li = document.createElement('li');
       li.textContent = step;
