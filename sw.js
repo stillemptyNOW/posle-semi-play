@@ -1,8 +1,9 @@
 const installShell = [
   './', './install.js', './install.css', './manifest.webmanifest',
+  './home-loader.js', './lobby-music.js',
   './icons/icon-192.png', './icons/icon-512.png', './icons/apple-touch-icon.png'
 ];
-const cacheName = 'после-семи-shell-v1';
+const cacheName = 'после-семи-shell-v2';
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(cacheName).then(cache => cache.addAll(installShell)));
 });
