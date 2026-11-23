@@ -176,3 +176,25 @@ after-seven-dread.mp3 — тема нарастающей тревоги. Смы
 after-seven-chess.mp3 — тема шахмат. Деревянная мелодия, редкие фортепианные аккорды и щипковый бас.
 after-seven-chess-move.mp3 — короткое скольжение и стук деревянной шахматной фигуры.
 after-seven-latch.mp3 — щелчки металлической защёлки и глухое касание двери.
+
+Оригинальные звуки и музыка для этой сборки
+after-seven-through-wall.wav — «Через стену», оригинальная приглушённая петля UK garage.
+after-seven-switchboard-hum.wav — «Гул станции», оригинальный эмбиент диспетчерской.
+after-seven-tape-switch.wav — щелчок механизма приёмника.
+after-seven-line-pickup.wav — включение телефонной линии.
+after-seven-thaw-drip.wav — вода с карниза во время оттепели.
+Записи синтезированы для «После семи». Сторонние композиции и записи в них не использованы.
+
+Записи Freesound, CC0. Использованы MP3-превью, опубликованные на страницах авторов.
+after-seven-canteen-chatter.mp3 — Talitha5
+https://freesound.org/people/Talitha5/sounds/509950/
+after-seven-eerie-dark-drone.mp3 — Werra
+https://freesound.org/people/Werra/sounds/249985/
+after-seven-suspenseful-piano.mp3 — StudioOneThirtyOne
+https://freesound.org/people/StudioOneThirtyOne/sounds/572931/
+after-seven-wall-switch.mp3 — qubodup
+https://freesound.org/people/qubodup/sounds/183994/
+after-seven-metal-door.mp3 — wlabarron
+https://freesound.org/people/wlabarron/sounds/509114/
+after-seven-snow-walk.mp3 — CharliesFoley
+https://freesound.org/people/CharliesFoley/sounds/841531/
