@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="./install.css">
 <script src="./install.js"></script>
 <script src="./lobby-music.js"></script>
+<script src="./home-loader.js" defer></script>
 
 <style>
 :root{color-scheme:dark;--paper:#faf1dd;--muted:#e2d7c0;--gold:#f0c479}
@@ -38,9 +39,29 @@ h2{font:400 clamp(1.8rem,4vw,3.1rem)/1 Georgia,serif;margin:8px 0}
 .lobby-tools{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:18px}.lobby-tools a{color:var(--muted)}.lobby-tools button{color:var(--paper);font:inherit;background:#1d3333;border:1px solid #c2a8817a;border-radius:6px;padding:7px 12px;cursor:pointer}
 @media(max-width:660px){main{width:calc(100% - 26px);padding-top:54px}.games{grid-template-columns:1fr}.game{min-height:275px;padding:21px}}
 @media(prefers-reduced-motion:reduce){.game{transition:none}.game:hover,.game:focus-visible{transform:none}}
+
+#home-loader{position:fixed;z-index:5000;inset:0;display:grid;place-items:center;padding:24px;background:#101a1c;color:#f6e9ce;text-align:center}
+#home-loader[hidden], #home-loader button[hidden]{display:none}
+.home-loading-card{width:min(100%,385px);padding:28px 16px}
+.home-loading-card img{border-radius:17px}
+.home-loading-card h1{font:400 clamp(2.7rem,9vw,4.5rem)/1 Georgia,serif;margin:15px 0 14px;letter-spacing:-.055em}
+.home-loading-card p{color:#e2d7c0;margin:12px 0}
+.home-loading-card progress{width:min(100%,272px);height:8px;accent-color:#f0c479}
+.home-loading-card button{margin-top:8px;color:#faf1dd;background:#243a3a;border:1px solid #af9b6c;border-radius:6px;padding:8px 12px;font:inherit;cursor:pointer}
 </style>
 </head>
-<body><main>
+<body>
+<section id="home-loader" aria-labelledby="home-load-title">
+  <div class="home-loading-card">
+    <img src="./icons/icon-192.png" width="64" height="64" alt="">
+    <h1 id="home-load-title">После семи</h1>
+    <p id="home-load-status" role="status">Загружаем обложки, музыку и файлы игры…</p>
+    <progress id="home-load-progress" aria-label="Загрузка файлов игры"></progress>
+    <div><button id="home-load-bypass" type="button" hidden>Открыть меню</button></div>
+  </div>
+</section>
+<noscript><style>#home-loader{display:none}</style></noscript>
+<main>
 <header><h1>После семи</h1><div class="menu-links"><p>Выбери, во что сыграть сегодня.</p><a class="start chat-link" href="./bobert.html">Боберт AI</a></div></header>
 <div class="games">
 <a class="game" href="./novella.html"><span class="kind">Хоррор-новелла</span><h2>После семи</h2><p>Семь месяцев в Киме. Один и тот же вечер запомнился всем по-разному.</p><span class="start">Открыть новеллу →</span></a>
